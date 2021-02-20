@@ -13,6 +13,8 @@ import { SharedModule } from './shared/shared.module';
 import { Provider } from '@angular/compiler/src/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(ruLocale, 'ru')
 
@@ -33,6 +35,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
