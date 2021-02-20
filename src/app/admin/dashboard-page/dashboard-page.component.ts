@@ -10,6 +10,7 @@ import { PostService } from 'src/app/shared/posts.service';
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
   posts: Post[];
+  searchStr = '';
   pSub: Subscription;
   constructor(
     private postService: PostService,
@@ -23,7 +24,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     )
   }
   remove(id: string) {
-    
+
   }
   ngOnDestroy(): void {
     if (this.pSub) {

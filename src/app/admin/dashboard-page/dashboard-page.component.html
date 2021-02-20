@@ -1,5 +1,5 @@
 <div class="form-contr">
-    <input type="text" placeholder="Search">
+    <input type="text" placeholder="Search" [(ngModel)]="searchStr">
 </div><br>
 <div *ngIf="posts?.length; else loading">
     <table>
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let post of posts; let idx = index">
+            <tr *ngFor="let post of posts | searchPosts:searchStr; let idx = index">
                 <td>{{ idx + 1 }}</td>
                 <td>{{ post.author }}</td>
                 <td>{{ post.title }}</td>
