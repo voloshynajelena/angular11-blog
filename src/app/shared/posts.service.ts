@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { env } from "process";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
@@ -42,5 +43,8 @@ export class PostService {
                 }
             )
         )
+    }
+    remove(id: string): Observable<void> {
+        return this.http.delete<void>(`${environment.fbDBUrl}/posts/${id}.json`)
     }
 }
