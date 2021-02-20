@@ -4,7 +4,7 @@
     <div 
     class="form-control"
     [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
-        <label for="email">Email:</label>
+        <label for="email">Email: <i>vblog@nomail.com</i></label>
         <input id="email" type="email" formControlName="email">
         <div 
         *ngIf="form.get('email').touched && form.get('email').invalid"
@@ -16,7 +16,7 @@
 
     <div class="form-control"
     [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}">
-        <label for="password">Password:</label>
+        <label for="password">Password: <i>123456</i></label>
         <input id="password" type="password" formControlName="password">
         <div
         *ngIf="form.get('password').touched && form.get('password').invalid" class="validation">
@@ -31,5 +31,5 @@
     <button 
     type="submit" 
     class="btn btn-primary"
-    [disabled]="!form.invalid">Log in</button>
+    [disabled]="form.invalid">Log in</button>
 </form>
